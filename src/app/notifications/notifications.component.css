@@ -1,0 +1,13 @@
+.form-control{
+    border: 1px solid #ccc;
+    height: 30px;
+    border-bottom: none;
+}
+
+.search-icons{
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    font-size: 22px;
+   
+}

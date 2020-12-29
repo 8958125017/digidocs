@@ -1,0 +1,380 @@
+<div class="main-content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-7 col-lg-7 col-sm-7">
+<div class="titleHead float-left">UPLOAD LAND INFORMATION</div>
+</div>
+</div>
+<div class="card">
+<div class="row mb-3">
+<div class="col-md-12">
+<div class="upload_title">Upload Land details as per the below given formats :</div>
+</div>
+</div>
+<div class="row mb-3">
+<div class="col-md-12">
+<ul>
+<li>
+<input type="radio" id="f-option" name="selector" checked>
+<label for="f-option">Single Uplaod</label>
+<div class="check"></div>
+</li>
+<li>
+<input type="radio" id="s-option" name="selector">
+<label for="s-option">Bulk Upload</label>
+<div class="check">
+<div class="inside"></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div>
+<div class="row">
+<div class="col-md-12 mt-3">
+<div class="card">
+<div class="card-body signup_input">
+<form [formGroup]="studentForm" (ngSubmit)="submitLandRecord()">
+
+<!-- *****************form********************* -->
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Land Address</label>
+
+</div>
+<div class="col-md-4">
+<input id="land_add" type="text" formControlName="land_add" name="land_add" class="p-2 w-100 rounded small login_input" placeholder="Enter Land Address" required >
+
+</div>
+
+<div class="col-md-2">
+<label for="">Postal Code</label>
+
+</div>
+<div class="col-md-4">
+<input id="postal_code" type="text"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="6" formControlName="postal_code" name="postal_code" class="p-2 w-100 rounded small login_input" placeholder="Enter Postal Code" required>
+
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Country</label>
+
+</div>
+<div class="col-md-4">
+<input id="country" type="text" formControlName="country" name="country" class="p-2 w-100 rounded small login_input" placeholder="Enter Country Name" required>
+
+<!-- <select class="form-control" name="cstate" id="cstate" formControlName="cstate" required>
+<option value="" required class="" selected="selected">--Select State--</option>
+<option *ngFor="let state of cstates" value="{{state}}">Bihar</option>
+<option>India</option>
+</select> -->
+
+</div>
+<div class="col-md-2">
+<label for="">State</label>
+
+</div>
+<div class="col-md-4">
+<!-- <select class="form-control" name="cstate" id="cstate" formControlName="cstate" required>
+<option value="" required class="" selected="selected">--Select State--</option>
+<option *ngFor="let state of cstates" value="{{state}}">Bihar</option>
+<option>Bihar</option>
+</select> -->
+<input id="state" type="text" formControlName="state" name="state" class="p-2 w-100 rounded small login_input" placeholder="Enter State Name" required>
+
+</div>
+
+</div>
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Geo-Coords</label>
+
+</div>
+<div class="col-md-4">
+<input id="geo_indecies" type="text" formControlName="geo_indecies" name="geo_indecies" class="p-2 w-100 rounded small login_input" placeholder="Enter Geo-Coords" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Land Area</label>
+
+</div>
+<div class="col-md-4">
+<input id="land_area" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" formControlName="land_area" name="land_area" class="p-2 w-100 rounded small login_input" placeholder="Enter Land Area" required>
+
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Parent Land Id</label>
+
+</div>
+<div class="col-md-4">
+<input id="parent_land_id" type="text" formControlName="parent_land_id" name="parent_land_id" class="p-2 w-100 rounded small login_input" placeholder="Enter Parent Land Id" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Plot Map</label>
+
+</div>
+<div class="col-md-4">
+<input id="plot_map" type="file"  (change)="fileUpload($event,'plot')" [ngModelOptions]="{standalone: true}" [(ngModel)]="plotPaper" name="plot_map" class="p-2 w-100 rounded small login_input" required>
+
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Registery Paper</label>
+
+</div>
+<div class="col-md-4">
+<input type="file"  (change)="fileUpload($event,'reg')" [ngModelOptions]="{standalone: true}" [(ngModel)]="stampPaper" name="reg_paper" class="p-2 w-100 rounded small login_input" placeholder="" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Stamp Paper</label>
+
+</div>
+<div class="col-md-4">
+<input id="stamp_paper" type="file" (change)="fileUpload($event,'stamp')" [ngModelOptions]="{standalone: true}" [(ngModel)]="regPaper" name="stamp_paper" class="p-2 w-100 rounded small login_input" placeholder="" required>
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Blue Print</label>
+
+</div>
+<div class="col-md-4">
+<input type="file"  (change)="fileUpload($event,'blue')" [ngModelOptions]="{standalone: true}" [(ngModel)]="bluePrint" name="reg_paper" class="p-2 w-100 rounded small login_input" placeholder="" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Land Unique Id</label>
+
+</div>
+<div class="col-md-4">
+<input id="land_uniq_id" type="text" formControlName="land_uniq_id" name="land_uniq_id" class="p-2 w-100 rounded small login_input" placeholder="Enter land unique Id" required>
+
+</div>
+</div>
+
+
+
+<!-- *********************Previous and current*********************** -->
+
+
+<div class="row">
+<div class="col-md-12 col-lg-12 col-sm-12 mb-3">
+<div class="titleHead float-left">Previous Owner</div>
+</div>
+<hr>
+</div>
+
+<div  class="row mt-3" >
+  
+  <div class="col-md-2" *ngFor="let item of preArray;let i=index">
+{{item}}
+</div>
+</div>
+
+<div class="row mt-3">
+<hr>
+<div class="col-md-6">
+<input  type="text" [(ngModel)]="preOwner" [ngModelOptions]="{standalone: true}" class="p-2 w-100 rounded small login_input" placeholder="Enter Previous Owner Id" >
+
+</div>
+<div class="col-md-6">
+<button type="button" class="btn btn-info" (click)="addPreviousOwner()"><i class="material-icons">
+add_circle_outline
+</i></button>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-12 col-lg-12 col-sm-12 mb-3">
+<div class="titleHead float-left">Current Owner</div>
+</div>
+<hr>
+</div>
+<div  *ngFor="let doc of docArray; let i= index">
+
+<div class="row mt-3">
+
+<div class="col-md-2">
+<label for="">Name</label>
+</div>
+<div class="col-md-4">
+<input id="name" type="text" [(ngModel)]="docArray[i].name" [ngModelOptions]="{standalone: true}" name="name" class="p-2 w-100 rounded small login_input" placeholder="Enter Name" required>
+
+</div>
+<div class="col-md-2">
+<label for="">Father Name</label>
+</div>
+<div class="col-md-4">
+<input id="father_name" type="text" [(ngModel)]="docArray[i].father_name" [ngModelOptions]="{standalone: true}" name="father_name" class="p-2 w-100 rounded small login_input" placeholder="Enter Father Name" required>
+
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Mother Name</label>
+
+</div>
+<div class="col-md-4">
+<input id="mother_name" type="text" [(ngModel)]="docArray[i].mother_name" [ngModelOptions]="{standalone: true}" name="mother_name" class="p-2 w-100 rounded small login_input" placeholder="Enter Mother Name" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Govt Id</label>
+
+</div>
+<div class="col-md-4">
+<input id=" govt_id" type="text" [(ngModel)]="docArray[i].govt_id" [ngModelOptions]="{standalone: true}" name=" govt_id" class="p-2 w-100 rounded small login_input" placeholder="Enter Govt Id" required>
+
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Mobile No.</label>
+
+</div>
+<div class="col-md-4">
+<input id="mob_num" type="number"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" [(ngModel)]="docArray[i].mob_num" [ngModelOptions]="{standalone: true}" name="mob_num" class="p-2 w-100 rounded small login_input" placeholder="Enter Mobile No" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Current Adress</label>
+
+</div>
+<div class="col-md-4">
+<input id="curr_add" type="text" [(ngModel)]="docArray[i].curr_add" [ngModelOptions]="{standalone: true}" name="curr_add" class="p-2 w-100 rounded small login_input" placeholder="Enter Current Adress" required>
+
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Country</label>
+
+</div>
+<div class="col-md-4">
+<input id="country" type="text" [(ngModel)]="docArray[i].country" [ngModelOptions]="{standalone: true}" name="country" class="p-2 w-100 rounded small login_input" placeholder="Enter Country Name" required>
+
+<!-- <select class="form-control" name="cstate" id="cstate" formControlName="cstate" required>
+<option value="" required class="" selected="selected">--Select State--</option>
+<option *ngFor="let state of cstates" value="{{state}}">Bihar</option>
+<option>India</option>
+</select> -->
+
+</div>
+<div class="col-md-2">
+<label for="">State</label>
+
+</div>
+<div class="col-md-4">
+<!-- <select class="form-control" name="cstate" id="cstate" formControlName="cstate" required>
+<option value="" required class="" selected="selected">--Select State--</option>
+<option *ngFor="let state of cstates" value="{{state}}">Bihar</option>
+<option>Bihar</option>
+</select> -->
+<input id="state" type="text" [(ngModel)]="docArray[i].state" [ngModelOptions]="{standalone: true}" name="state" class="p-2 w-100 rounded small login_input" placeholder="Enter State Name" required>
+
+</div>
+
+</div>
+<div class="row mt-3">
+<div class="col-md-2">
+<label for="">Postal Code</label>
+
+</div>
+<div class="col-md-4">
+<input id="postal_code" type="text"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="6" [(ngModel)]="docArray[i].postal_code" [ngModelOptions]="{standalone: true}" name="postal_code" class="p-2 w-100 rounded small login_input" placeholder="Enter Postal Code" required>
+
+</div>
+
+<div class="col-md-2">
+<label for="">Email</label>
+
+</div>
+<div class="col-md-4">
+<input id="email" type="text" [(ngModel)]="docArray[i].email" [ngModelOptions]="{standalone: true}" name="email" class="p-2 w-100 rounded small login_input" placeholder="Enter Email" required>
+
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-10">
+</div>
+
+</div>
+<hr>
+<div class="row mt-3">
+<div class="col-md-12 text-center">
+<button class="btn btn-warning mat-raised-button btn-space"  type="button" id="addBtn" (click)="addMore(i)" >+ Add More</button>
+   <button class="btn btn-warning mat-raised-button btn-space"  type="button" id="addBtn" (click)="remove(i)" >- Remove</button>
+
+</div>
+</div>
+</div>
+
+<input class="btn btn-info ml-2" type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- <div>
+<div class="row mb-2">
+<div class="col-md-12">
+<p class="upload-text"><span class="text-danger">*</span> Upload data file CSV / XML / SQL Dump</p>
+</div>
+</div>
+<div class="row mb-3">
+<div class="col-md-12">
+<button type="button" class="btn btn-success">Upload</button>
+</div>
+</div>
+<div class="row mb-3">
+<div class="col-md-12">
+<p>Click to Upload More</p>
+</div>
+</div>
+</div> -->
+
+
+
+</div>
+
+</div>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<!--  <div class="modal-header">
+</div> -->
+<div class="modal-body">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+
+
+</div>
+
+</div>
+</div>
+</div>

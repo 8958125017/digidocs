@@ -1,0 +1,138 @@
+
+<div class="main-content">
+   <div class="container-fluid">
+          <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+             <div class="issuing">
+              <div class="titleHeadissue">
+                <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i> 
+                   Civil Details
+             </div>
+               </div>
+            </div>
+         </div>
+<br>
+      <div class="table-responsive">
+                     <table class="table table-bordered">
+                       <tr>
+                           <th style="width:600px">
+                                Certificate Id
+                           </th>
+                           <th>
+                              {{certiData.data[0].certifId}}
+                           </th>
+                        </tr>
+                        <tr>
+                           <th style="width:600px">
+                              Certificate Type
+                           </th>
+                           <th>
+                             {{certiData.data[0].certifType}}
+                           </th>
+                        </tr>                      
+                        
+                         <tr>
+                           <th style="width:600px">
+                             Time & Date 
+                           </th>
+                           <th>
+                             {{certiData.data[0].cts | date: 'dd/MM/yyyy'}}
+                           </th>
+                          </tr>
+                         <tr>
+                           <th style="width:600px">
+                             Owner Id
+                           </th>
+                           <th>
+                              {{certiData.data[0].owner_id}}
+                           </th>
+                         </tr>
+                         <tr>
+                           <th style="width:600px">
+                             Owner Deatils
+                           </th>
+                           <th>
+                             
+                           </th>
+                         </tr>   
+                         <tr>
+                           <th style="width:600px">
+                             Name
+                           </th>
+                           <th>
+                             {{ownData.name}}
+                           </th>
+                         </tr>  
+                         <tr>
+                           <th style="width:600px">
+                             Father Name
+                           </th>
+                           <th>
+                             {{ownData.father_name}}
+                           </th>
+                         </tr>  
+                         <tr>
+                           <th style="width:600px">
+                             Mother Name
+                           </th>
+                           <th>
+                             {{ownData.mother_name}}
+                           </th>
+                         </tr>  
+                         <tr>
+                           <th style="width:600px">
+                             Country
+                           </th>
+                           <th>
+                              {{ownData.country}}
+                           </th>
+                         </tr>     
+                          <tr>
+                           <th style="width:600px">
+                             State
+                           </th>
+                           <th>
+                              {{ownData.state}}
+                           </th>
+                         </tr>   
+                         <tr>
+                           <th style="width:600px">
+                             Address
+                           </th>
+                           <th>
+                              {{ownData.curr_add}}
+                           </th>
+                         </tr>  
+                           
+                          <tr>
+                           <th style="width:600px">
+                             Postal Code
+                           </th>
+                           <th>
+                              {{ownData.postal_code}}
+                           </th>
+                         </tr>  
+                          <tr>
+                           <th style="width:600px">
+                             Government Id
+                           </th>
+                           <th>
+                              {{ownData.govt_id}}
+                           </th>
+                         </tr> 
+                          <tr>
+                           <th style="width:600px">
+                             Mobile Number
+                           </th>
+                           <th>
+                              {{ownData.mob_num}}
+                           </th>
+                         </tr>                       
+                     </table>
+                  </div>
+     
+   </div>
+</div>
+
+
+

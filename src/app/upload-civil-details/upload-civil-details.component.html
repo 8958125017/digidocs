@@ -1,0 +1,208 @@
+<div class="main-content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-7 col-lg-7 col-sm-7">
+<div class="titleHead float-left">UPLOAD CIVIL INFORMATION</div>
+</div>
+</div>
+<div class="card">
+<div class="row mb-3">
+<div class="col-md-12">
+<div class="upload_title">Upload CIVIL details as per the below given formats :</div>
+</div>
+</div>
+<div class="row mb-3">
+<div class="col-md-12">
+<ul>
+<li>
+<input type="radio" id="f-option" name="selector" checked>
+<label for="f-option">Single Uplaod</label>
+<div class="check"></div>
+</li>
+<li>
+<input type="radio" id="s-option" name="selector">
+<label for="s-option">Bulk Upload</label>
+<div class="check">
+<div class="inside"></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div>
+<div class="row">
+<div class="col-md-12 mt-3">
+<div class="card">
+<div class="card-body signup_input">
+    <form [formGroup]="civiladetails" (ngSubmit)="onSubmit()">
+
+<!-- *****************form********************* -->
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12 mb-3">
+    <div class="titleHead float-left">Certificate Upload</div>
+    </div>
+    <hr>
+    </div>
+    <div class="row mt-3">
+     <div class="col-md-2">
+       <label for="">Name</label>
+     </div>
+    <div class="col-md-4">
+        <input id="name" type="text" formControlName="name" name="name" class="p-2 w-100 rounded small login_input" placeholder="Enter Father Name" required>
+     </div>
+
+      <div class="col-md-2">
+        <label for="">Father Name</label>
+        </div>
+        <div class="col-md-4">
+        <input id="father_name" type="text" formControlName="father_name" name="father_name" class="p-2 w-100 rounded small login_input" placeholder="Enter Father Name" required>
+        
+        </div>
+    </div>
+   
+        <div class="row mt-3">
+            <div class="col-md-2">
+            <label for="">Mother Name</label>
+            
+            </div>
+            <div class="col-md-4">
+            <input id="mother_name" type="text" formControlName="mother_name" name="mother_name" class="p-2 w-100 rounded small login_input" placeholder="Enter Mother Name" required>
+            
+            </div>
+            
+            <div class="col-md-2">
+            <label for="">Govt Id</label>
+            
+            </div>
+            <div class="col-md-4">
+            <input id=" govt_id" type="text" formControlName="govt_id" name=" govt_id" class="p-2 w-100 rounded small login_input" placeholder="Enter Govt Id" required>
+            
+            </div>
+          
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+                <label for="">Mobile No.</label>
+                
+                </div>
+                <div class="col-md-4">
+                <input id="mob_num" type="text" formControlName="mob_num" name="mob_num" class="p-2 w-100 rounded small login_input" placeholder="Enter Mobile No" required>
+                
+                </div>
+                
+                <div class="col-md-2">
+                <label for="">Current Adress</label>
+                
+                </div>
+                <div class="col-md-4">
+                <input id="curr_add" type="text" formControlName="curr_add" name="curr_add" class="p-2 w-100 rounded small login_input" placeholder="Enter Current Adress" required>
+                
+                </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-2">
+                    <label for="">Country</label>
+                    
+                    </div>
+                    <div class="col-md-4">
+                    <input id="country" type="text" formControlName="country" name="country" class="p-2 w-100 rounded small login_input" placeholder="Enter Country Name" required>
+                                       
+                    </div>
+                    <div class="col-md-2">
+                    <label for="">State</label>
+                    
+                    </div>
+                    <div class="col-md-4">
+                     <input id="state" type="text" formControlName="state" name="state" class="p-2 w-100 rounded small login_input" placeholder="Enter State Name" required>
+                    
+                    </div>
+                    
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-2">
+                        <label for="">Postal Code</label>
+                        
+                        </div>
+                        <div class="col-md-4">
+                        <input id="postal_code" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="6"  type="text" formControlName="postal_code" name="postal_code" class="p-2 w-100 rounded small login_input" placeholder="Enter Postal Code" required>
+                        
+                        </div>
+                        
+                        <div class="col-md-2">
+                        <label for="">Email</label>
+                        
+                        </div>
+                        <div class="col-md-4">
+                        <input id="email" type="text" formControlName="email" name="email" class="p-2 w-100 rounded small login_input" placeholder="Enter Email" required>
+                        
+                        </div>
+                        </div>
+
+                  <div class="row mt-3">
+                   <div class="col-md-2">
+                     <label for="">Certificate Id</label>
+                </div>
+                <div class="col-md-4">
+                <input id=" certifId" type="text"  formControlName="certifId"  name=" certifId" class="p-2 w-100 rounded small login_input" placeholder="Enter Certificate Id" required>                
+                </div>
+                 <div class="col-md-2">
+                     <label for="">Certificate type</label>
+                </div>
+                <div class="col-md-4">
+               <select formControlName="certiType" autocomplete="nope">
+                            <option value="">Select</option>
+                           <option value="birth">Birth Certificate</option> 
+                           <option value="marriage">Marriage</option>
+                           <option value="domicial">Domicial</option>                                              
+                        </select>          
+                </div> 
+                
+            </div>
+
+                  <div class="row mt-3">
+                   
+                  <div class="col-md-2">
+                     <label for="">Document</label>
+                </div>
+                <div class="col-md-4">
+                <input id=" doc" type="file"  (change)="fileUpload($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="docFile" name=" doc" class="p-2 w-100 rounded small login_input" placeholder="Enter Govt Id" required>                
+                </div>
+                
+            </div>
+        
+        
+<!-- *********************Previous and current*********************** -->
+
+<!--  -->
+
+<input class="btn btn-info ml-2" type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<!--  <div class="modal-header">
+</div> -->
+<div class="modal-body">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+
+
+</div>
+
+</div>
+</div>
+</div>

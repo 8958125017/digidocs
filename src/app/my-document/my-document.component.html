@@ -1,0 +1,238 @@
+<div id="myLandRecord" *ngIf="myLandRecord">
+<div class="main-content">
+   <div class="container-fluid">
+   <div class="row">
+         <div class="col-md-12 col-lg-12 col-sm-12">
+             <div class="civil-issuing">
+                 <div class="titleHeadissue">
+               <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i> 
+                 ISSUING AUTHORITY
+             </div>
+               </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                 <div class="titleHead float-left">CIVIL CERTIFICATE RECORDS</div>
+         </div>
+      </div>
+      <br>
+         <div class="col-md-12">
+            <div class="card">
+               <div class="card-body">
+                  <div class="titleHead float-left"></div>
+                  <div class="table-responsive">
+                     <table class="table">
+                        <thead class="">
+                           <th>
+                              S.No.
+                           </th>
+                           <th>
+                              Certificate Id
+                           </th>
+                           <th>
+                              Certificate Type
+                           </th>
+                              <th>
+                              Time & Date 
+                           </th>
+                           <th>
+                            Document
+                           </th>
+                           
+                            <th>
+                             Status
+                           </th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of issuerList ; let i=index">
+                              <td>
+                                 {{i+1}}
+                              </td>
+                              <td>
+                <a class="text-primary" routerLink="/civildetail/{{item.certifId}}/{{item.certifType}}//{{item.status}}">
+                             {{item.certifId}}
+                              </a>           
+                              </td>
+                              <td>
+                                {{item.certifType}}
+                              </td>
+                               <td>
+                               {{item.cts | date: 'dd/MM/yyyy'}} 
+                              </td>
+                              <td>
+                                011034
+                              </td>
+                              
+                             
+                                <td>
+                                <button class="validated" *ngIf="item.status=='validated'">Validated</button>
+                                <button class="validated" *ngIf="item.status=='issued'">Issued</button>
+                              </td>
+                           </tr>                          
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+<div id="validatingAuthority" *ngIf="validatingAuthority">
+<div class="main-content">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+             <div class="issuing">
+                 <div class="titleHeadissue">
+              <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i> 
+                VALIDATING AUTHORITY
+             </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+          <div class="col-md-7">
+                 <div class="titleHead">CIVIL REQUEST VALIDATION</div>
+               </div>
+               <div class="col-md-5">
+                     <form class="navbar-form">
+                           <div class="input-group no-border">
+                               <input type="text" value="" class="form-control" placeholder="Search by Certificate Id">
+                               <i class="material-icons search-icons">search</i>
+                           </div>
+                       </form>
+              </div>
+         </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+               <div class="card-body">
+                  <div class="titleHead float-left"></div>
+                  <div class="table-responsive">
+                     <table class="table">
+                        <thead class="">
+                           <th>
+                              S.No.
+                           </th>
+                           <th>
+                              Certificate Id
+                           </th>
+                           <th>
+                              Certificate Type
+                           </th>
+                              <th>
+                              Time & Date 
+                           </th>
+                           <th>
+                            Document
+                           </th>
+                           
+                            <th>
+                             Status
+                           </th>
+                           <th>
+                            Action
+                          </th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of validatorList ; let i=index">
+                              <td>
+                                 {{i+1}}
+                              </td>
+                              <td>
+                                <a class="text-primary" routerLink="/civildetail/{{item.certifId}}/{{item.certifType}}//{{item.status}}">
+                             {{item.certifId}}
+                              </a>                
+                              </td>
+                              <td>
+                                {{item.certifType}}
+                              </td>
+                               <td>
+                               {{item.cts | date: 'dd/MM/yyyy'}} 
+                              </td>
+                              <td>
+                                011034
+                              </td>
+                              <td>
+                               <button class="validated" *ngIf="item.status=='validated'">Validated</button>
+                                <button class="validated" *ngIf="item.status=='issued'">Issued</button>
+                              </td>
+                             
+                                <td>
+                                 <button class="approve" style="cursor:pointer;" data-toggle="modal" data-target="#approveModal" (click)="approve(item)" *ngIf="item.status=='issued'">Approve</button>&nbsp;
+                                <button class="disapprove" data-toggle="modal" data-target="#rejectModal"*ngIf="item.status=='issued'">Reject</button>
+                                <span *ngIf="item.status=='validated'">NA</span> 
+                              </td>
+                           </tr>  
+                                               
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+
+
+
+
+
+<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">        
+         <div class="modal-body">
+           Are you sure you want to approve ?
+           <br><br>
+         <p class="text-center">
+             <button  type="submit" class="btn btn-primary" data-dismiss="modal" (click)="approvecivilRecord()" >YES</button>
+             <button  type="submit" class="btn btn-primary" data-dismiss="modal" >No</button>
+         </p>
+         </div>
+     
+      </div>
+   </div>
+</div>
+
+
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">        
+          <div class="modal-body">
+            <b>   Are you sure you want to reject ?</b>       
+            <form>
+            <div class="row mb-2">                 
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <input matInput placeholder="Remarks" type="text" [(ngModel)]="remarks"
+                           autocomplete="nope" [ngModelOptions]="{standalone: true}">                        
+                     </mat-form-field>
+                  </div>
+               </div>
+              <br>
+             <div class="row mb-2 mt-4">
+                  <div class="col-md-12 text-center">
+                      <p class="text-center">
+                   <button  type="submit" class="btn btn-primary" data-dismiss="modal" (click)="reject()">Yes</button>
+                   <button  type="submit" class="btn btn-primary" data-dismiss="modal" >No</button>
+                  </p>
+                  </div>
+               </div>
+          </form>
+      
+         </div>
+     
+      </div>
+   </div>
+</div>
+

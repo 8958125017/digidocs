@@ -1,0 +1,282 @@
+
+<div id="myLandRecord" *ngIf="myLandRecord">
+<div class="main-content">
+   <div class="container-fluid">
+      <div class="row">
+      	<div class="col-md-12 col-lg-12 col-sm-12">
+             <div class="issuing">
+                 <div class="titleHeadissue">
+             	<i class="material-icons mr-2" style="float:left;">assignment_turned_in</i> 
+                 ISSUING AUTHORITY
+             </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+          <div class="col-md-7">
+                 <div class="titleHead">LAND RECORDS</div>
+               </div>
+               <div class="col-md-5">
+                     <form class="navbar-form">
+                           <div class="input-group no-border">
+                               <input type="text" value="" class="form-control" placeholder="Search by land Id">
+                               <i class="material-icons search-icons">search</i>
+                           </div>
+                       </form>
+              </div>
+         </div>
+         <div class="row">
+         <div class="col-md-12">
+            <div class="card">
+               <div class="card-body">
+                  <div class="titleHead float-left"></div>
+                  <div class="table-responsive">
+                     <table class="table">
+                        <thead class="">
+                           <th>
+                              S.No.
+                           </th>
+                           <th>
+                              Land ID
+                           </th>
+                           <th>
+                              Address
+                           </th>
+                           <th>
+                             State
+                           </th>
+                           <th>
+                              Country
+                           </th>
+                           <th>
+                              Pin Code
+                           </th>
+                           <th>
+                              Geo-Cordinates
+                           </th>
+                           <th>
+                             Land Area
+                           </th>
+                            <th>
+                             Status
+                           </th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                           <tr *ngFor="let item of issuerList ; let i=index">
+                              <td>
+                                  {{i+1}}
+                              </td>
+                              <td>
+                               <a class="text-primary" routerLink="/landdetail/{{item.land_uniq_id}}/{{item.status}}">
+                              {{item.land_uniq_id}}
+                              </a>
+                              </td>
+                              <td>
+                               {{item.land_add}}
+                              </td>
+                              <td>
+                               {{item.state}}
+                              </td>
+                              <td>
+                               {{item.country}}
+                              </td>
+                              <td>
+                                {{item.postal_code}}
+                              </td>
+                              <td>
+                                 {{item.geo_indecies}}
+                              </td>
+                              <td>
+                                {{item.land_area}} Sqft
+                              </td>
+                                <td>
+                                <button class="validated" *ngIf="item.status=='validated'">Validated</button>
+                                <button class="validated" *ngIf="item.status=='issued'">Issued</button>       
+
+                              </td>
+                           </tr>
+  
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+
+
+
+<div id="validatingAuthority" *ngIf="validatingAuthority">
+<div class="main-content">
+   <div class="container-fluid">
+      <div class="row">
+      	<div class="col-md-12 col-lg-12 col-sm-12">
+             <div class="issuing">
+                 <div class="titleHeadissue">
+             	<i class="material-icons mr-2" style="float:left;">assignment_turned_in</i> 
+                VALIDATING AUTHORITY
+             </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+          <div class="col-md-7">
+                 <div class="titleHead">LAND REQUEST VALIDATION</div>
+               </div>
+               <div class="col-md-5">
+                     <form class="navbar-form">
+                           <div class="input-group no-border">
+                               <input type="text" value="" class="form-control" placeholder="Search by Land Id">
+                               <i class="material-icons search-icons">search</i>
+                           </div>
+                       </form>
+              </div>
+         </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+               <div class="card-body">
+                  <div class="titleHead float-left"></div>
+                  <div class="table-responsive">
+                     <table class="table">
+                        <thead class="">
+                            <th>
+                              S.No.
+                           </th>
+                           <th>
+                              Land ID
+                           </th>
+                           <th>
+                              Address
+                           </th>
+                           <th>
+                             State
+                           </th>
+                           <th>
+                              Country
+                           </th>
+                           <th>
+                              Pin Code
+                           </th>
+                           <th>
+                              Geo-Cordinates
+                           </th>
+                           <th>
+                             Land Area
+                           </th>
+                            <th>
+                             Status
+                           </th>
+                           <th>
+                             Action
+                           </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of validatorList ; let i=index">
+                             <td>
+                                 {{i+1}}
+                              </td>
+                               <td>
+                                  <a class="text-primary" routerLink="/landdetail/{{item.land_uniq_id}}/{{item.status}}">
+                              {{item.land_uniq_id}}
+                              </a>
+                              </td>
+                              <td>
+                               {{item.land_add}}
+                              </td>
+                              <td>
+                               {{item.state}}
+                              </td>
+                              <td>
+                               {{item.country}}
+                              </td>
+                              <td>
+                                {{item.postal_code}}
+                              </td>
+                              <td>
+                                 {{item.geo_indecies}}
+                              </td>
+                              <td>
+                                {{item.land_area}} Sqft
+                              </td>
+                              <td>
+                                <button class="validated" *ngIf="item.status=='validated'">Validated</button>
+                                <button class="validated" *ngIf="item.status=='issued'">Issued</button>                           
+                              </td>
+                                <td >
+                                 <button class="approve" style="cursor:pointer;" data-toggle="modal" data-target="#approveModal" (click)="approve(item)" *ngIf="item.status=='issued'">Approve</button>&nbsp;
+                                <button class="disapprove" data-toggle="modal" data-target="#rejectModal" *ngIf="item.status=='issued'">Reject</button>
+                                <span *ngIf="item.status=='validated'">NA</span> 
+                              </td>
+                           </tr>                           
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+
+
+
+
+
+<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">        
+         <div class="modal-body">
+           Are you sure you want to approve ?
+           <br><br>
+         <p class="text-center">
+             <button  type="submit" class="btn btn-primary" data-dismiss="modal" (click)="approveLandRecord()">YES</button>
+             <button  type="submit" class="btn btn-primary" data-dismiss="modal" >No</button>
+         </p>
+         </div>
+     
+      </div>
+   </div>
+</div>
+
+
+
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">        
+          <div class="modal-body">
+            <b>   Are you sure you want to reject ?</b>       
+            <form>
+            <div class="row mb-2">                 
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <input matInput placeholder="Remarks" type="text" [(ngModel)]="remarks"
+                           autocomplete="nope" [ngModelOptions]="{standalone: true}">                        
+                     </mat-form-field>
+                  </div>
+               </div>
+              <br>
+             <div class="row mb-2 mt-4">
+                  <div class="col-md-12 text-center">
+                      <p class="text-center">
+                   <button  type="submit" class="btn btn-primary" data-dismiss="modal" (click)="reject()">Yes</button>
+                   <button  type="submit" class="btn btn-primary" data-dismiss="modal" >No</button>
+                  </p>
+                  </div>
+               </div>
+          </form>
+      
+         </div>
+     
+      </div>
+   </div>
+</div>

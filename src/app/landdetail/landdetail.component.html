@@ -1,0 +1,141 @@
+
+<div class="main-content">
+   <div class="container-fluid">
+          <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+             <div class="issuing">
+              <div class="titleHeadissue">
+                <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i> 
+                   Land Details
+             </div>
+               </div>
+            </div>
+         </div>
+<br>
+      <div class="table-responsive">
+                     <table class="table table-bordered">
+                       <tr>
+                           <th style="width:600px">
+                              Land ID
+                           </th>
+                           <th>
+                             {{landData.data[0].land_uniq_id}}
+                           </th>
+                        </tr>
+                        <tr>
+                           <th style="width:600px">
+                              Parents Land ID
+                           </th>
+                           <th>
+                             {{landData.data[0].parent_land_id}}
+                           </th>
+                        </tr>
+                       <tr>
+                           <th style="width:600px">
+                              Address
+                           </th>
+                           <th>
+                              {{landData.data[0].land_add}}
+                           </th>
+                        </tr>
+                         <tr>
+                           <th style="width:600px">
+                            Country
+                           </th>
+                           <th>
+                             {{landData.data[0].country}}
+                           </th>
+                        </tr>
+                         <tr>
+                           <th style="width:600px">
+                              State
+                           </th>
+                           <th>
+                              {{landData.data[0].state}}
+                           </th>
+                        </tr>
+                         <tr>
+                           <th style="width:600px">
+                              Pin Code
+                           </th>
+                           <th>
+                               {{landData.data[0].postal_code}}
+                           </th>
+                        </tr>
+                         <tr>
+                           <th style="width:600px">
+                             Geo-Cordinates
+                           </th>
+                           <th>
+                              {{landData.data[0].geo_indecies}}
+                           </th>
+                        </tr>
+                         <tr>
+                           <th style="width:600px">
+                            Land Area
+                           </th>
+                           <th>
+                              {{landData.data[0].land_area}}
+                           </th>
+                        </tr>
+                        <tr>
+                           <th style="width:600px">
+                            Plot Map
+                           </th>
+                           <th>
+                             <a href="javascript:void(0)" data-toggle="modal"  style="cursor: pointer;"> {{landData.data[0].docs.plot_map}}</a> 
+                           </th>
+                        </tr>
+                        <tr>
+                           <th style="width:600px">
+                           Registery Paper
+                           </th>
+                           <th>
+                             <a href="javascript:void(0)" data-toggle="modal"  style="cursor: pointer;"> {{landData.data[0].docs.reg_paper}}</a>
+                           </th>
+                        </tr>
+                        <tr>
+                           <th style="width:600px">
+                           Stamp Paper
+                           </th>
+                           <th>
+                           <a href="javascript:void(0)" data-toggle="modal" style="cursor: pointer;" >   {{landData.data[0].docs.stamp_paper}}</a>
+                           </th>
+                        </tr>
+                        <tr>
+                           <th style="width:600px">
+                            Blue Print
+                           </th>
+                           <th>
+                            <a href="javascript:void(0)" data-toggle="modal"  style="cursor: pointer;">   {{landData.data[0].docs.blue_print}}</a>
+                           </th>
+                        </tr>
+                          <tr>
+                           <th style="width:600px">
+                            Owners
+                           </th>
+                           <th>
+                           	<span *ngFor="let item of currentOwner">
+                           		<a class="text-primary" >{{item}}
+                              </a>
+                            </span>
+                           </th>
+                        </tr>
+                         <tr>
+                           <th style="width:600px">
+                            Previous Owner
+                           </th>
+                           <th>
+                            <span *ngFor="let item of previousOwner">
+                             {{item}}                              
+                            </span>
+                           </th>
+                        </tr>
+                     </table>
+                  </div>
+     
+   </div>
+</div>
+
+
+
